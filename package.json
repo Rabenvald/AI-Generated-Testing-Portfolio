@@ -1,0 +1,16 @@
+{
+  "name": "playwright-cucumber-poc",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "cucumber-js --require-module ts-node/register --require features/steps/**/*.ts features",
+    "test:playwright": "npx playwright test",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0",
+    "playwright": "^1.32.0"
+  }
+}
