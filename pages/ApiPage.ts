@@ -17,7 +17,13 @@ export class ApiPage {
   }
 
   async chromiumHashLinkVisible() {
-    return this.chromiumAnchor().locator('.anchor').isVisible();
+    const isVisibleNow = await this.page.evaluate(() => {
+      const el = document.querySelector('h3#playwright-chromium a.hash-link');
+      if (!el) return false;
+      const style = window.getComputedStyle(el);
+      return parseFloat(style.opacity) > 0;
+    });
+    return isVisibleNow;
   }
 
   async hoverChromiumHeader() {
