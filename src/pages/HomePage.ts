@@ -1,5 +1,5 @@
-import { BasePage } from './BasePage';
 import { Locator, Page } from 'playwright';
+import { BasePage } from './BasePage';
 
 export class HomePage extends BasePage {
   footer: Locator;
@@ -15,5 +15,7 @@ export class HomePage extends BasePage {
 
   async gotoHome() {
     await this.goto('https://playwright.dev/');
+    // optionally wait for something visible to know page loaded
+    await this.page.waitForLoadState('networkidle');
   }
 }

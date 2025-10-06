@@ -1,22 +1,27 @@
-import { BasePage } from './BasePage';
 import { Locator, Page } from 'playwright';
+import { BasePage } from './BasePage';
 
 export class ApiPage extends BasePage {
   navBar: Locator;
-  // locator for “chromium” header under “Properties”
   chromiumHeader: Locator;
   chromiumHashLink: Locator;
 
   constructor(page: Page) {
     super(page);
-    this.navBar = page.locator('nav');  // adjust selector to actual nav bar
-    // We need a precise locator for the “chromium” header under “Properties”
-    // Suppose HTML structure is something like <h3 id="chromium">Chromium <a class="hash-link" .../></h3>
-    this.chromiumHeader = page.locator('section#properties h3[id="chromium"]');
+    // Observe the actual site — the navigation is under <nav> with some class etc.
+    this.navBar = page.locator('nav'); 
+
+    // Inspecting the Playwright API docs page, the “Properties” section is in a section
+    // with id "properties", and inside there is an h3 for “chromium”
+    this.chromiumHeader = page.locator('#properties h3[id="chromium"]');
+
+    // The hash link is the little anchor icon next to the header text
+    // It’s typically an <a> with class “hash-link”
     this.chromiumHashLink = this.chromiumHeader.locator('a.hash-link');
   }
 
   async gotoApi() {
     await this.goto('https://playwright.dev/docs/api');
+    await this.page.waitForLoadState('networkidle'); 
   }
 }

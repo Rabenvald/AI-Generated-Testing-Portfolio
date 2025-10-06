@@ -1,4 +1,4 @@
-import { Given, Then } from '@cucumber/cucumber';
+import { Given, Then, After } from '@cucumber/cucumber';
 import { HomePage } from '../../src/pages/HomePage';
 import { expect } from '@playwright/test';
 import { Browser, BrowserContext, Page, chromium } from 'playwright';
@@ -21,7 +21,6 @@ Then('I should see a footer link {string}', async (linkText: string) => {
   await expect(link).toBeVisible();
 });
 
-// Optionally, after all scenarios, close browser
 After(async () => {
   await page?.close();
   await context?.close();

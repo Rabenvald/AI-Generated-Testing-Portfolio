@@ -1,4 +1,4 @@
-import { Page } from 'playwright';
+import { Page, Locator } from 'playwright';
 
 export class BasePage {
   readonly page: Page;
@@ -11,8 +11,8 @@ export class BasePage {
     await this.page.goto(url);
   }
 
-  async getFooterLinkByText(text: string) {
-    // assumes link text is visible in footer
+  footerLinkLocator(text: string): Locator {
+    // Generic: find in footer a link with this text
     return this.page.locator('footer a', { hasText: text });
   }
 }

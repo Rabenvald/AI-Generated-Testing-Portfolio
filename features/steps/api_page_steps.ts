@@ -27,19 +27,16 @@ Then(
   }
 );
 
-When(
-  'I hover over the chromium header under Properties',
-  async () => {
-    await api.chromiumHeader.hover();
-  }
-);
+When('I hover over the chromium header under Properties', async () => {
+  await api.chromiumHeader.hover();
+});
 
 Then(
   'the hash link next to chromium header under Properties should be visible',
   async () => {
     await expect(api.chromiumHashLink).toBeVisible();
   }
-);
+});
 
 After(async () => {
   await page?.close();
