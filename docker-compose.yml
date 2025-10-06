@@ -3,6 +3,7 @@ services:
   test:
     build: .
     volumes:
-      - ./:/usr/src/app
+      - ./:/usr/sr
     working_dir: /usr/src/app
-    command: ["npx", "cucumber-js", "--require-module", "ts-node/register", "--require", "features/steps/**/*.ts", "features"]
+    command: ["npx", "cucumber-js", "--require-module", "ts-node/register", "--require", "features/steps/**/*.ts", "features"]tures"]
+]

@@ -1,8 +1,9 @@
-FROM mcr.microsoft.com/playwright:v1.32.0-focal
+FROM mcr.microsoft.com/playwright:v1.43.1
 
-WORKDIR /usr/src/app
-COPY package.json package-lock.json* ./
-RUN npm install
+WORKDIR /app
 COPY . .
-RUN npm run build
-CMD ["npm", "test"]
+
+RUN npm install
+RUN npx playwright install
+
+CMD ["npx", "cucumber-js"]
