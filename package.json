@@ -1,0 +1,13 @@
+{
+  "name": "playwright-cucumber-pom",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.0",
+    "@playwright/test": "^1.43.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
