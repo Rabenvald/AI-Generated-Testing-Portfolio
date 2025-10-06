@@ -7,15 +7,21 @@ export class ApiPage {
     await this.page.goto('https://playwright.dev/docs/api/class-playwright');
   }
 
-  async navBarExists() {
-    return this.page.locator('nav').isVisible();
+  async leftSidebarExists() {
+    const sidebar = this.page.getByRole('navigation', { name: 'Docs sidebar' });
+    return sidebar.isVisible();
   }
 
-  async isChromiumHashVisible() {
-    return this.page.locator('text=chromium >> xpath=.. >> .anchor').isVisible();
+  async chromiumAnchor() {
+    return this.page.locator('h3#playwright-chromium');
+  }
+
+  async chromiumHashLinkVisible() {
+    return this.chromiumAnchor().locator('.anchor').isVisible();
   }
 
   async hoverChromiumHeader() {
-    await this.page.locator('text=chromium').hover();
+    await this.chromiumAnchor().hover();
   }
+
 }

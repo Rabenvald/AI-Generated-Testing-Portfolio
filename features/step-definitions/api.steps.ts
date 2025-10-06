@@ -12,13 +12,13 @@ Given('I am on the API page', async () => {
 });
 
 Then('the nav bar should be visible', async () => {
-  const visible = await apiPage.navBarExists();
-  if (!visible) throw new Error('Nav bar not visible');
+  const visible = await apiPage.leftSidebarExists();
+  if (!visible) throw new Error('Left sidebar nav is not visible');
 });
 
 Then('the chromium hash link should not be visible', async () => {
-  const visible = await apiPage.isChromiumHashVisible();
-  if (visible) throw new Error('Hash link should not be visible');
+  const visible = await apiPage.chromiumHashLinkVisible();
+  if (visible) throw new Error('Chromium hash link should NOT be visible');
 });
 
 When('I hover over the chromium header', async () => {
@@ -26,6 +26,6 @@ When('I hover over the chromium header', async () => {
 });
 
 Then('the chromium hash link should be visible', async () => {
-  const visible = await apiPage.isChromiumHashVisible();
-  if (!visible) throw new Error('Hash link should be visible');
+  const visible = await apiPage.chromiumHashLinkVisible();
+  if (!visible) throw new Error('Chromium hash link should be visible');
 });
