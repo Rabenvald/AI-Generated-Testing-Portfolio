@@ -12,7 +12,7 @@ export class ApiPage {
     return sidebar.isVisible();
   }
 
-  async chromiumAnchor() {
+  chromiumAnchor() {
     return this.page.locator('h3#playwright-chromium');
   }
 
