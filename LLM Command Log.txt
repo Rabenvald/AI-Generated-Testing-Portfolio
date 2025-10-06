@@ -1,0 +1,11 @@
+1)
+Create a playwright test suite using Typescript and Cucumber. The solution should use the page object model and be contained within a Docker development container.
+For the "Home" page 'https://playwright.dev/', include the following tests:
+Confirm that the GitHub link in the footer exists.
+Confirm that the YouTube link in the footer exists.
+Confirm that the Blog link in the footer exists.
+Confirm that the Stack Overflow link in the footer exists.
+Confirm that the Stack LinkedIn link in the footer exists.
+Navigate to the API page, and confirm that the nav bar exists.
+Navigate to the API page. Confirm that hash link next to the 'chromium' header, under the 'Properties' header, is not visible.
+Navigate to the API page, and mouse over the 'chromium' header under the 'Properties' header. Confirm that hash link next to the 'chromium' header, under the 'Properties' header, is visible.
