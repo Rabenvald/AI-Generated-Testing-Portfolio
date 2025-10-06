@@ -4,7 +4,7 @@ export class HomePage {
   constructor(private page: Page) {}
 
   async goto() {
-    await this.page.goto('/');
+    await this.page.goto('https://playwright.dev/');
   }
 
   async footerLinkExists(text: string) {

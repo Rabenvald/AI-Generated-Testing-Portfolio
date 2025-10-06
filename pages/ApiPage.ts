@@ -4,7 +4,7 @@ export class ApiPage {
   constructor(private page: Page) {}
 
   async goto() {
-    await this.page.goto('/docs/api/class-playwright');
+    await this.page.goto('https://playwright.dev/docs/api/class-playwright');
   }
 
   async navBarExists() {
